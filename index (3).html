@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1E3A5F">
+<title>Hirfati</title>
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon-192.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Cormorant+Garamond:wght@600&display=swap">
+<style>
+:root{--bg:#F8F3EF;--card:#fff;--ink:#3A332E;--mut:#6B6259;--line:#E9DDD3;--navy:#4A3B30;--or:#A5602F;--acc:#A5602F}
+@media (prefers-color-scheme:dark){:root{--bg:#1E1814;--card:#2A221C;--ink:#F3EAE2;--mut:#BBAEA2;--line:#40342B;--navy:#6B4E3A;--acc:#E0A06A}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Cairo',sans-serif;font-size:15px}
+#app{max-width:480px;margin:0 auto;min-height:100vh;padding-bottom:84px}
+header{background:var(--card) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cpath d='M40 6L48 32L74 40L48 48L40 74L32 48L6 40L32 32Z' fill='none' stroke='%23E3CDB9' stroke-width='1.5'/%3E%3Ccircle cx='40' cy='40' r='5' fill='none' stroke='%23E3CDB9' stroke-width='1.5'/%3E%3C/svg%3E");color:var(--ink);padding:calc(16px + env(safe-area-inset-top,0px)) 20px 20px;border-radius:0 0 28px 28px;display:flex;flex-direction:column;gap:12px;box-shadow:0 6px 20px rgba(80,50,20,.08)}
+header h1{margin:0;font-size:24px;line-height:1.4}
+.brand{display:flex;align-items:center;gap:10px;font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:600;color:var(--ink)}
+.row{display:flex;gap:8px;align-items:center}.sp{justify-content:space-between}
+main{padding:20px;display:flex;flex-direction:column;gap:14px}
+h2{margin:0;font-size:17px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:14px;display:flex;flex-direction:column;gap:10px;box-shadow:0 4px 14px rgba(80,50,20,.05)}
+.mut{color:var(--mut);font-size:14px}.star{color:#E8960C;font-weight:600;font-size:14px}
+button,input,select,textarea{font-family:inherit;font-size:15px}
+button{min-height:44px;border-radius:999px;border:0;padding:0 18px;font-weight:700;cursor:pointer}
+.b1{background:var(--navy);color:#fff}.b2{background:var(--or);color:#fff}.b3{background:var(--card);color:var(--ink);border:1px solid var(--or)}
+.chip{border-radius:999px;background:var(--bg);color:var(--ink);border:1px solid var(--line)}.chip.on{background:var(--or);color:#fff}
+input,select,textarea{width:100%;min-height:46px;border:1px solid var(--line);border-radius:16px;padding:8px 14px;background:var(--bg);color:var(--ink)}
+label{font-size:14px;font-weight:600;display:block;margin-bottom:4px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.trade{min-height:84px;background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:20px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px}
+.av{width:56px;height:56px;border-radius:50%;background:var(--bg);flex:none;display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--acc);border:3px solid var(--or)}
+.av.big{width:76px;height:76px;margin-top:-38px;font-size:28px;box-shadow:0 0 0 4px var(--card)}
+.pc{align-items:center;text-align:center;padding:0 14px 14px;overflow:hidden}.ban{height:64px;align-self:stretch;margin:0 -14px;background:#F1E6DC url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cpath d='M40 6L48 32L74 40L48 48L40 74L32 48L6 40L32 32Z' fill='none' stroke='%23E3CDB9' stroke-width='1.5'/%3E%3Ccircle cx='40' cy='40' r='5' fill='none' stroke='%23E3CDB9' stroke-width='1.5'/%3E%3C/svg%3E")}
+.nm{font-size:17px}.tr{color:var(--acc);font-weight:700}
+.badge{background:var(--or);color:#fff;border-radius:999px;padding:2px 12px;font-size:13px;font-weight:700}
+.bar{height:10px;background:var(--line);border-radius:5px}.bar i{display:block;height:10px;background:var(--or);border-radius:5px}
+nav{position:fixed;bottom:0;left:0;right:0;background:var(--card);border-top:1px solid var(--line);padding:6px 8px calc(6px + env(safe-area-inset-bottom,0px));display:flex;max-width:480px;margin:0 auto}
+nav button{flex:1;background:none;color:var(--mut);font-size:12px;padding:0;display:flex;flex-direction:column;align-items:center;gap:2px}nav button.on{color:var(--acc);font-weight:700}
+nav svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.toast{background:var(--navy);color:#fff;border-radius:16px;padding:12px;text-align:center}
+</style>
+</head>
+<body>
+<div id="app"><main><div class="mut">كنحمل...</div></main></div>
+<nav id="nav"></nav>
+<script type="module">
+import {initializeApp} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import {getAuth,GoogleAuthProvider,signInWithPopup,onAuthStateChanged,signOut} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+import {getFirestore,doc,getDoc,setDoc,updateDoc,collection,query,where,getDocs,addDoc,writeBatch,serverTimestamp,increment} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+const app=initializeApp({
+  apiKey:"AIzaSyDupQ9niB_RIu6GJkxYK3O6DbqJyFQi_Oo",
+  authDomain:"hirfati-d3f18.firebaseapp.com",
+  projectId:"hirfati-d3f18",
+  storageBucket:"hirfati-d3f18.firebasestorage.app",
+  messagingSenderId:"1051817589909",
+  appId:"1:1051817589909:web:b817b7d40410534dfa6f9c"
+});
+const auth=getAuth(app), db=getFirestore(app);
+
+const CITIES=['أكادير','الدار البيضاء','الرباط','سلا','تمارة','مراكش','فاس','مكناس','طنجة','تطوان','وجدة','الناظور','القنيطرة','المحمدية','الجديدة','آسفي','الصويرة','بني ملال','خريبكة','سطات','تازة','الحسيمة','ورزازات','تارودانت','كلميم','العيون','الداخلة'];
+const TR=['كهربائي','صباغ','نجار','سباك','حداد','بناء','زليج','جباس','لحام','ميكانيكي','صانع ألمنيوم'];
+const $=id=>document.getElementById(id);
+window.$=$;
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const S={user:null,role:null,me:null,view:'home',trade:'',city:'أكادير',all:false,sort:'rating',q:'',list:[],cur:null,revs:[],reqs:[],msg:'',ready:false};
+const ms=a=>a.createdAt&&a.createdAt.toMillis?a.createdAt.toMillis():Date.now();
+const avg=a=>a.ratingCount?a.ratingSum/a.ratingCount:0;
+const lvl=a=>a.points>=300&&avg(a)>=4?'معلم موثوق':(a.points>=100?'محترف':'مبتدئ');
+const isNew=a=>Date.now()-ms(a)<12096e5;
+const stars=v=>v?'★'.repeat(Math.round(v))+'☆'.repeat(5-Math.round(v))+' '+v.toFixed(1):'★ جديد';
+const wa=p=>'https://wa.me/212'+String(p).replace(/\D/g,'').replace(/^0/,'');
+const cityOpts=sel=>CITIES.map(c=>`<option${c===sel?' selected':''}>${c}</option>`).join('');
+
+async function act(fn){try{await fn()}catch(e){console.error(e);S.msg='صرا مشكل ('+(e.code||e.message)+'). عاود.'}render()}
+function sorted(){let l=S.list.filter(a=>!S.q||(a.name+a.trade+a.hood).includes(S.q));
+ if(S.sort==='new')return l.sort((a,b)=>ms(b)-ms(a));
+ l.sort((a,b)=>avg(b)-avg(a));const n=l.filter(isNew);
+ if(n.length){l=l.filter(a=>!isNew(a));l.splice(Math.min(1,l.length),0,n[0]);n.slice(1).forEach(x=>l.push(x))}
+ return l}
+
+async function loadList(){let c=[collection(db,'artisans'),where('city','==',S.city)];if(S.trade)c.push(where('trade','==',S.trade));
+ const s=await getDocs(query(...c));S.list=s.docs.map(d=>({id:d.id,...d.data()}))}
+async function loadRevs(id){const s=await getDocs(query(collection(db,'reviews'),where('artisanId','==',id)));
+ S.revs=s.docs.map(d=>d.data()).sort((a,b)=>ms(b)-ms(a)).slice(0,5)}
+async function loadReqs(field){const s=await getDocs(query(collection(db,'requests'),where(field,'==',S.user.uid)));
+ S.reqs=s.docs.map(d=>({id:d.id,...d.data()})).sort((a,b)=>ms(b)-ms(a))}
+
+window.go=(v,x)=>act(async()=>{S.msg='';S.view=v;
+ if(v==='results'){if(x!==undefined)S.trade=x;await loadList()}
+ if(v==='artisan'){S.cur=S.list.find(a=>a.id===x);await loadRevs(x)}
+ if(v==='myreqs')await loadReqs('customerId');
+ if(v==='account')await loadReqs('artisanId');
+ scrollTo(0,0)});
+window.login=()=>act(async()=>{await signInWithPopup(auth,new GoogleAuthProvider())});
+window.logout=()=>signOut(auth);
+window.setRole=r=>act(async()=>{await setDoc(doc(db,'users',S.user.uid),{role:r,name:S.user.displayName||'',createdAt:serverTimestamp()});S.role=r;S.view=r==='artisan'?'account':'home';if(r==='artisan')await loadReqs('artisanId')});
+window.setCity=v=>{S.city=v;render()};
+window.more=()=>{S.all=!S.all;render()};
+window.search=()=>{S.q=$('q').value.trim();go('results','')};
+window.pick=(k,v)=>{S[k]=v;go('results')};
+window.sendReq=aid=>{const n=$('cn').value.trim(),p=$('cp').value.trim(),d=$('cd').value.trim(),w=$('cw').value.trim()||p;
+ if(!n||!p||!d){S.msg='عمر الاسم والهاتف ووصف المشكل.';return render()}
+ act(async()=>{await addDoc(collection(db,'requests'),{artisanId:aid,customerId:S.user.uid,customerName:n,customerPhone:p,customerWhatsapp:w,desc:d,status:'new',createdAt:serverTimestamp()});S.msg='توصل الحرفي بطلبك، غادي يتصل بيك.'})};
+window.setSt=(id,s)=>act(async()=>{await updateDoc(doc(db,'requests',id),{status:s});await loadReqs('artisanId')});
+window.done=(rid,aid)=>act(async()=>{const b=writeBatch(db);b.update(doc(db,'requests',rid),{status:'done'});
+ b.update(doc(db,'artisans',aid),{done:increment(1),points:increment(10)});await b.commit();await loadReqs('customerId')});
+window.rate=(rid,aid)=>{const s=+$('st'+rid).value,t=$('tx'+rid).value.trim();
+ act(async()=>{const b=writeBatch(db);b.set(doc(db,'reviews',rid),{artisanId:aid,customerId:S.user.uid,name:S.user.displayName||'زبون',stars:s,text:t,createdAt:serverTimestamp()});
+ b.update(doc(db,'requests',rid),{rated:true});
+ b.update(doc(db,'artisans',aid),{ratingSum:increment(s),ratingCount:increment(1),points:increment(s===5?5:0)});await b.commit();await loadReqs('customerId')})};
+window.chTrade=()=>{let t=$('ct').value;if(t==='__o')t=$('co').value.trim();
+ if(!t){S.msg='كتب المهنة الجديدة.';return render()}
+ if(t===S.me.trade){S.msg='هادي هي المهنة الحالية.';return render()}
+ act(async()=>{await updateDoc(doc(db,'artisans',S.user.uid),{trade:t,tradeChangedAt:serverTimestamp()});
+ S.me.trade=t;S.me.tradeChangedAt={toMillis:()=>Date.now()};S.msg='تبدلات المهنة. تقدر تبدلها مرة أخرى من بعد شهر.'})};
+window.reg=()=>{const g=i=>$(i).value.trim();let t=g('rt');if(t==='__o')t=g('ro');
+ if(!g('rn')||!g('rh')||!g('rp')||!g('rb')||!t){S.msg='عمر كل المعلومات.';return render()}
+ act(async()=>{const a={name:g('rn'),trade:t,city:g('rc'),hood:g('rh'),phone:g('rp'),exp:+g('re')||0,bio:g('rb'),points:0,done:0,ratingSum:0,ratingCount:0,createdAt:serverTimestamp()};
+ await setDoc(doc(db,'artisans',S.user.uid),a);S.me={id:S.user.uid,...a,createdAt:{toMillis:()=>Date.now()}};S.view='account';await loadReqs('artisanId')})};
+
+const LOGO='<svg width="36" height="36" viewBox="0 0 34 34" aria-hidden="true"><rect width="34" height="34" rx="9" fill="#A5602F"/><path d="M17 6L20.5 13.5L28 17L20.5 20.5L17 28L13.5 20.5L6 17L13.5 13.5Z" fill="none" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/><circle cx="17" cy="17" r="2.2" fill="none" stroke="#fff" stroke-width="1.5"/></svg>';
+const head=(t,sub,back)=>`<header><div class="brand">${LOGO}<span>Hirfati</span></div><div class="row">${back?`<button aria-label="رجوع" style="background:none;color:#fff;font-size:22px" onclick="${back}">→</button>`:''}<h1>${t}</h1></div>${sub||''}</header>`;
+const card=a=>`<div class="card pc"><div class="ban"></div><div class="av big">${esc(a.name[0])}</div><b class="nm">${esc(a.name)}</b><span class="badge">${a.ratingCount?lvl(a):(isNew(a)?'جديد':lvl(a))}</span><div class="tr">${esc(a.trade)}</div><div class="star">${stars(avg(a))} (${a.ratingCount||0})</div><div class="mut">${esc(a.city)} · ${esc(a.hood)} · ${a.exp} سنوات الخبرة</div><button class="b2" style="width:100%" onclick="go('artisan','${a.id}')">عرض الملف</button></div>`;
+const toast=()=>S.msg?`<div class="toast">${esc(S.msg)}</div>`:'';
+const ST={new:'جديد',accepted:'مقبول',declined:'مرفوض',done:'مكتمل'};
+
+function vLogin(){return head('حِرفة المغرب... بين يديك','<div>الحرفيين المغاربة فمكان واحد</div>')+`<main><button class="b2" style="min-height:56px;font-size:17px" onclick="login()">دخل بحساب Google</button>${toast()}</main>`}
+function vRole(){return head('حِرفة المغرب... بين يديك','<div>شنو نتا؟</div>')+`<main><button class="b2" style="min-height:72px;font-size:18px" onclick="setRole('client')">أنا زبون · كنقلب على حرفي</button><button class="b1" style="min-height:72px;font-size:18px" onclick="setRole('artisan')">أنا حرفي · بغيت نعرض خدماتي</button>${toast()}</main>`}
+function vHome(){const t=S.all?TR:TR.slice(0,3);
+ return head('حِرفة المغرب... بين يديك',`<div class="row"><select aria-label="المدينة" onchange="setCity(this.value)">${cityOpts(S.city)}</select></div><div class="row"><input id="q" aria-label="بحث" placeholder="ابحث عن حرفي أو خدمة"><button class="b2" onclick="search()">بحث</button></div>`)
+ +`<main><h2>المهن</h2><div class="grid">${t.map(x=>`<button class="trade" onclick="pick('trade','${x}')"><b>${x}</b></button>`).join('')}<button class="trade" aria-label="المزيد" onclick="more()"><b style="font-size:24px">${S.all?'−':'⋯'}</b><span class="mut">${S.all?'أقل':'المزيد'}</span></button></div><button class="b3" onclick="pick('trade','')">شوف كاع الحرفيين فـ ${esc(S.city)}</button></main>`}
+function vResults(){const l=sorted();
+ return head((S.trade||'كل الحرفيين')+' · '+esc(S.city),`<div class="row"><button class="chip ${S.sort==='rating'?'on':''}" onclick="S.sort='rating';render()">الأعلى تقييماً</button><button class="chip ${S.sort==='new'?'on':''}" onclick="S.sort='new';render()">جديد</button></div>`,"S.q='';go('home')")
+ +`<main>${l.length?l.map(card).join(''):'<div class="card mut">ما لقينا حتى حرفي فهاد المدينة دابا.</div>'}${toast()}</main>`}
+function vArtisan(){const a=S.cur;if(!a)return vHome();
+ return head(esc(a.name),`<div>${esc(a.trade)} · ${esc(a.city)} · ${esc(a.hood)} · ${a.exp} سنين خبرة</div><div class="row"><span class="badge" style="background:#fff;color:#B84E00">${stars(avg(a))}</span><span class="badge">${lvl(a)}</span></div>`,"go('results')")
+ +`<main><h2>نبذة</h2><div class="mut">${esc(a.bio)}</div><div class="row"><a href="tel:${esc(a.phone)}" style="flex:1;text-decoration:none"><button class="b1" style="width:100%">اتصال</button></a><a href="${wa(a.phone)}" style="flex:1;text-decoration:none"><button class="b3" style="width:100%">واتساب</button></a></div>
+ <h2>آراء الزبناء</h2>${S.revs.length?S.revs.map(r=>`<div class="card"><div class="star">${'★'.repeat(r.stars)} · ${esc(r.name)}</div><div class="mut">${esc(r.text)}</div></div>`).join(''):'<div class="mut">باقي ما كاين حتى رأي.</div>'}
+ <div class="card"><h2>اطلب خدمة من ${esc(a.name)}</h2><div><label for="cn">اسمك</label><input id="cn" value="${esc(S.user.displayName||'')}"></div><div><label for="cp">رقم هاتفك</label><input id="cp" inputmode="tel"></div><div><label for="cw">رقم الواتساب (اختياري، إلا كان مختلف)</label><input id="cw" inputmode="tel"></div><div><label for="cd">وصف المشكل</label><textarea id="cd" rows="3"></textarea></div><button class="b2" onclick="sendReq('${a.id}')">أرسل الطلب</button></div>${toast()}</main>`}
+function vMyReqs(){return head('طلباتي')+`<main>${S.reqs.length?S.reqs.map(r=>`<div class="card"><div class="row sp"><b>${esc(r.desc)}</b><span class="badge">${ST[r.status]||r.status}</span></div>
+ ${r.status==='accepted'?`<div class="mut">الحرفي قبل الطلب. فاش تكمل الخدمة أكد هنا:</div><button class="b2" onclick="done('${r.id}','${r.artisanId}')">الخدمة تمّت</button>`:''}
+ ${r.status==='done'&&!r.rated?`<div><label for="st${r.id}">قيّم الحرفي</label><select id="st${r.id}"><option>5</option><option>4</option><option>3</option><option>2</option><option>1</option></select></div><input id="tx${r.id}" placeholder="تعليق (اختياري)"><button class="b1" onclick="rate('${r.id}','${r.artisanId}')">بعث التقييم</button>`:''}</div>`).join(''):'<div class="card mut">ما بعثتي حتى طلب باقي.</div>'}${toast()}</main>`}
+function vReg(){return head('سجل كحرفي','<div>عمر المعلومات باش الزبناء يلقاوك</div>')+`<main>
+ <div><label for="rn">الاسم الكامل</label><input id="rn" value="${esc(S.user.displayName||'')}"></div>
+ <div><label for="rt">المهنة</label><select id="rt" onchange="$('ro').style.display=this.value==='__o'?'block':'none'">${TR.map(t=>`<option>${t}</option>`).join('')}<option value="__o">حرفة أخرى</option></select><input id="ro" placeholder="اكتب الحرفة ديالك" style="display:none;margin-top:8px"></div>
+ <div><label for="rc">المدينة</label><select id="rc">${cityOpts('أكادير')}</select></div>
+ <div><label for="rh">الحي</label><input id="rh"></div>
+ <div><label for="rp">رقم الهاتف / الواتساب</label><input id="rp" inputmode="tel"></div>
+ <div><label for="re">سنين الخبرة</label><input id="re" type="number" min="0"></div>
+ <div><label for="rb">نبذة قصيرة</label><textarea id="rb" rows="3"></textarea></div>
+ <button class="b2" onclick="reg()">سجل دابا</button>${toast()}</main>`}
+function vAccount(){const a=S.me,p=a.points,nx=p>=300?0:(p>=100?300:100),w=nx?Math.min(100,Math.round(p/nx*100)):100;
+ const rs=S.reqs.filter(r=>r.status==='new'||r.status==='accepted');
+ return head(esc(a.name),`<div>${esc(a.trade)} · ${esc(a.city)} · ${esc(a.hood)}</div>`)
+ +`<main><div class="card"><div class="row sp"><b>المستوى: ${lvl(a)}</b><b class="star">${p} نقطة</b></div><div class="bar"><i style="width:${w}%"></i></div><div class="mut">${nx?'باقي '+(nx-p)+' نقطة للمستوى الجاي.':'وصلتي لأعلى مستوى!'}</div></div>
+ <div class="row"><div class="card" style="flex:1;text-align:center"><b>${a.done}</b><span class="mut">خدمات مكتملة</span></div><div class="card" style="flex:1;text-align:center"><b>${a.ratingCount?avg(a).toFixed(1):'-'}</b><span class="mut">متوسط التقييم</span></div></div>
+ ${(()=>{const t=a.tradeChangedAt,last=t&&t.toMillis?t.toMillis():0,left=Math.ceil((last+2592e6-Date.now())/864e5);
+ return left>0&&last?`<div class="card"><b>المهنة: ${esc(a.trade)}</b><div class="mut">تقدر تبدل المهنة مرة وحدة فالشهر. تقدر تبدلها من بعد ${left} يوم.</div></div>`
+ :`<div class="card"><h2>تغيير المهنة</h2><div class="mut">المهنة الحالية: ${esc(a.trade)}. تقدر تبدلها مرة وحدة فالشهر.</div><select id="ct" aria-label="المهنة الجديدة" onchange="$('co').style.display=this.value==='__o'?'block':'none'">${TR.map(x=>`<option>${x}</option>`).join('')}<option value="__o">حرفة أخرى</option></select><input id="co" placeholder="كتب الحرفة ديالك" style="display:none"><button class="b1" onclick="chTrade()">بدل المهنة</button></div>`})()}
+ <h2>الطلبات</h2>${rs.length?rs.map(r=>`<div class="card"><b>${esc(r.customerName)}</b><div class="mut">${esc(r.desc)}</div><div class="mut">${esc(r.customerPhone)}</div><div class="row"><a href="tel:${esc(r.customerPhone)}" style="flex:1;text-decoration:none"><button class="b3" style="width:100%">اتصال</button></a><a href="${wa(r.customerWhatsapp||r.customerPhone)}" target="_blank" rel="noopener" style="flex:1;text-decoration:none"><button class="b1" style="width:100%">واتساب</button></a></div>${r.status==='new'?`<div class="row"><button class="b1" style="flex:1" onclick="setSt('${r.id}','accepted')">قبول</button><button class="b3" style="flex:1" onclick="setSt('${r.id}','declined')">رفض</button></div>`:'<div class="mut">مقبول، كنتسناو الزبون يأكد الخدمة.</div>'}</div>`).join(''):'<div class="mut">ما كاين حتى طلب دابا.</div>'}${toast()}</main>`}
+
+const IC={home:'<svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8v10H15v-6H9v6H3z"/></svg>',myreqs:'<svg viewBox="0 0 24 24"><path d="M9 3h6v3H9zM6 5h12v16H6zM9 11h6M9 15h6"/></svg>',account:'<svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>',out:'<svg viewBox="0 0 24 24"><path d="M10 4H5v16h5M15 8l4 4-4 4M19 12H9"/></svg>'};
+function nav(){let t=[];if(S.user&&S.role==='client')t=[['home','الرئيسية'],['myreqs','طلباتي']];
+ if(S.user&&S.role==='artisan'&&S.me)t=[['account','حسابي']];
+ if(S.user)t.push(['out','خروج']);
+ $('nav').innerHTML=t.map(x=>`<button class="${S.view===x[0]?'on':''}" onclick="${x[0]==='out'?'logout()':`go('${x[0]}')`}">${IC[x[0]]||''}<span>${x[1]}</span></button>`).join('')}
+window.render=function(){let h;
+ if(!S.ready)h='<main><div class="mut">كنحمل...</div></main>';
+ else if(!S.user)h=vLogin();
+ else if(!S.role)h=vRole();
+ else if(S.role==='artisan')h=S.me?vAccount():vReg();
+ else h={home:vHome,results:vResults,artisan:vArtisan,myreqs:vMyReqs}[S.view]();
+ $('app').innerHTML=h;nav()};
+window.S=S;
+
+onAuthStateChanged(auth,async u=>{
+ try{S.user=u;S.role=null;S.me=null;S.view='home';
+  if(u){const r=await getDoc(doc(db,'users',u.uid));if(r.exists()){S.role=r.data().role;
+   if(S.role==='artisan'){const a=await getDoc(doc(db,'artisans',u.uid));if(a.exists()){S.me={id:a.id,...a.data()};S.view='account';await loadReqs('artisanId')}}}}
+ }catch(e){console.error(e);S.msg='صرا مشكل فالاتصال ('+(e.code||e.message)+').'}
+ S.ready=true;render()});
+if('serviceWorker' in navigator)navigator.serviceWorker.register('sw.js').catch(()=>{});
+</script>
+</body>
+</html>
